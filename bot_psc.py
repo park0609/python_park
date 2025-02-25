@@ -1,14 +1,20 @@
 from telegram import Update
 from telegram.ext import Applicate, CommandHandler, MwssageHandler, filters, CallbackContext
 import talk_db as tk
+from dotenv import load_dotenv
+import os
 
-TOKEN = "차단당해서 모름"
+load_dotenv()
+
+tele_token = os.getenv("TELEGRAM_KEY")
+
+TOKEN = "tele_token"
 
 TRIGGER_WORDS = {
     "안녕":"안녕하세요"
     "정보":"뭐가 필요하세요"
     "기분":"저는 기분이 좋아요"
-
+}
 async def start(update, context):
     await update.message.reply_text("안녕하세요 저는 차단당한 박세찬입니다. 좀 도와주세요")
 
